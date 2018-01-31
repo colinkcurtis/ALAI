@@ -731,7 +731,7 @@ SumOfSatRuffWeights = 0;
 SumOfWeightedCorrLengths = 0;
 SumOfCorrLengthWeights = 0;
 
-SumOfWeighteds = 0;
+SumOfWeightedFractalDimensions = 0;
 SumOfFractalDimensionWeights = 0;
 
 
@@ -767,6 +767,7 @@ TotalYDataForFitting = zeros(length(AllImageStats{1}{3}),1);
 TotalYErrorDataForFitting = zeros(length(AllImageStats{1}{3}),1);
 SumOfCorrLengthWeights = 0;
 HolderForSumOfCorrLengths = 0;
+SumOfFractalDimensionWeights = 0;
 CL = 0;
 CLW = 0;
 
@@ -863,7 +864,7 @@ if A == 1
     SatRuffWeightedAVGError = AllRoughnessParameters{1,i}{3,1}(1,2);;
 else
     CorrLengthWeightedAVGError = 1 / sqrt(SumOfCorrLengthWeights);    
-    FractalDimensionWeightedAVGError = 1 / sqrt(SumOfDfWeights);
+    FractalDimensionWeightedAVGError = 1 / sqrt(SumOfFractalDimensionWeights);
     SatRuffWeightedAVGError = 1 / sqrt(SumOfSatRuffWeights);
 end
 
@@ -1030,7 +1031,7 @@ if A == 1
     CorrLengthWeightedAVGError = AllRoughnessParameters{1,i}{3,1}(1,3);
     SatRuffWeightedAVGError = AllRoughnessParameters{1,i}{3,1}(1,2);  
 else
-    FractalDimensionWeightedAVGError = 1 / sqrt(SumOfDfWeights);
+    FractalDimensionWeightedAVGError = 1 / sqrt(SumOfFractalDimensionWeights);
     SatRuffWeightedAVGError = 1 / sqrt(SumOfSatRuffWeights);
     CorrLengthWeightedAVGError = 1 / sqrt(SumOfCorrLengthWeights);
 end
@@ -1147,6 +1148,8 @@ function y = FractalDimensionWeightedAVGInfo ...
  
     FractalDimensionWeightedAVG = SumOfWeightedFractalDimensions / ...
 		SumOfFractalDimensionWeights;
+   % FractalDimensionWeightedAVG = round(FractalDimensionWeightedAVG, 5);
+   % ^ was trying to force an extra decimal place on the D_f printed out...
     FractalDimensionWeightedAVGError = ...
 		ceil(FractalDimensionWeightedAVGError/10^floor ...
 			(log10(FractalDimensionWeightedAVGError)))*10^floor ...
