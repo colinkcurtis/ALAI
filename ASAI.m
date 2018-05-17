@@ -1105,99 +1105,101 @@ figure();
     ylabel('Log( RMS Roughness [A] )','FontWeight','bold','FontName',...
 		'Constantina','FontSize',16);
 
-function y = SaturationRoughnessWeightedAVGInfo(SumOfWeightedSatRuffs, ...
-	SumOfSatRuffWeights, SatRuffWeightedAVGError)
+% function y = SaturationRoughnessWeightedAVGInfo(SumOfWeightedSatRuffs, ...
+% 	SumOfSatRuffWeights, SatRuffWeightedAVGError)
+%     
+%     SatRuffWeightedAVG = SumOfWeightedSatRuffs / SumOfSatRuffWeights;
+%     
+% 	SatRuffWeightedAVGError = ceil(SatRuffWeightedAVGError/10^floor(log10 ...
+% 		(SatRuffWeightedAVGError)))...
+% 			*10^floor(log10(SatRuffWeightedAVGError)); 
+% 			% salt to suit...   
+%     
+% 	SatRuffErrorInfoAVG = num2str(SatRuffWeightedAVGError);
+%     
+% 	SatRuffErrorInfoAVG = cat(2,'(',SatRuffErrorInfoAVG,')');
+%     
+% 	SatRuffWeightedAVG = num2str(SatRuffWeightedAVG);
+%     
+% 	SatRuffWeightedAVG = SatRuffWeightedAVG(1:end-2);
+%     
+% 	y = 'Saturation Roughness: ';
+%     
+% 	y = cat(2,y, SatRuffWeightedAVG,' ',SatRuffErrorInfoAVG,' [A]');
     
-    SatRuffWeightedAVG = SumOfWeightedSatRuffs / SumOfSatRuffWeights;
+% function y = CorrelationLengthWeightedAVGInfo(SumOfWeightedCorrLengths, ...
+% 	SumOfCorrLengthWeights, CorrLengthWeightedAVGError)
+%    
+%     CorrLengthWeightedAVG = SumOfWeightedCorrLengths / ...
+% 		SumOfCorrLengthWeights;
+%     CorrLengthWeightedAVGError = ceil(CorrLengthWeightedAVGError ...
+% 		/10^floor(log10(CorrLengthWeightedAVGError))) ...
+% 			*10^floor(log10(CorrLengthWeightedAVGError)); % salt to suit... 
+%     CorrLengthErrorInfoAVG = num2str(CorrLengthWeightedAVGError);
+%     CorrLengthErrorInfoAVG = cat(2,'(',CorrLengthErrorInfoAVG,')');
+%     CorrLengthWeightedAVG = num2str(CorrLengthWeightedAVG);
+%     CorrLengthWeightedAVG = CorrLengthWeightedAVG(1:end-4);
+%     y = 'Correlation Length: ';
+%     y = cat(2, y, CorrLengthWeightedAVG,' ', CorrLengthErrorInfoAVG,' [A]'); 
+% 
+% function y = FractalDimensionWeightedAVGInfo ...
+% 	(SumOfWeightedFractalDimensions, SumOfFractalDimensionWeights,...
+% 		FractalDimensionWeightedAVGError)
+%  
+%     FractalDimensionWeightedAVG = SumOfWeightedFractalDimensions / ...
+% 		SumOfFractalDimensionWeights;
+%    % FractalDimensionWeightedAVG = round(FractalDimensionWeightedAVG, 5);
+%    % ^ was trying to force an extra decimal place on the D_f printed out...
+%     FractalDimensionWeightedAVGError = ...
+% 		ceil(FractalDimensionWeightedAVGError/10^floor ...
+% 			(log10(FractalDimensionWeightedAVGError)))*10^floor ...
+% 				(log10(FractalDimensionWeightedAVGError)); % salt to suit...
+%     FractalErrorInfoAVG = num2str(FractalDimensionWeightedAVGError);
+%     FractalErrorInfoAVG = cat(2,'(',FractalErrorInfoAVG,')');
+%     FractalDimensionWeightedAVG = num2str(FractalDimensionWeightedAVG);
+%     FractalDimensionWeightedAVG = FractalDimensionWeightedAVG(1:end-2);
+%     y = 'Fractal Dimension: ';
+%     y = cat(2, y, FractalDimensionWeightedAVG,' ',FractalErrorInfoAVG);
     
-	SatRuffWeightedAVGError = ceil(SatRuffWeightedAVGError/10^floor(log10 ...
-		(SatRuffWeightedAVGError)))...
-			*10^floor(log10(SatRuffWeightedAVGError)); 
-			% salt to suit...   
-    
-	SatRuffErrorInfoAVG = num2str(SatRuffWeightedAVGError);
-    
-	SatRuffErrorInfoAVG = cat(2,'(',SatRuffErrorInfoAVG,')');
-    
-	SatRuffWeightedAVG = num2str(SatRuffWeightedAVG);
-    
-	SatRuffWeightedAVG = SatRuffWeightedAVG(1:end-2);
-    
-	y = 'Saturation Roughness: ';
-    
-	y = cat(2,y, SatRuffWeightedAVG,' ',SatRuffErrorInfoAVG,' [A]');
-    
-function y = CorrelationLengthWeightedAVGInfo(SumOfWeightedCorrLengths, ...
-	SumOfCorrLengthWeights, CorrLengthWeightedAVGError)
-   
-    CorrLengthWeightedAVG = SumOfWeightedCorrLengths / ...
-		SumOfCorrLengthWeights;
-    CorrLengthWeightedAVGError = ceil(CorrLengthWeightedAVGError ...
-		/10^floor(log10(CorrLengthWeightedAVGError))) ...
-			*10^floor(log10(CorrLengthWeightedAVGError)); % salt to suit... 
-    CorrLengthErrorInfoAVG = num2str(CorrLengthWeightedAVGError);
-    CorrLengthErrorInfoAVG = cat(2,'(',CorrLengthErrorInfoAVG,')');
-    CorrLengthWeightedAVG = num2str(CorrLengthWeightedAVG);
-    CorrLengthWeightedAVG = CorrLengthWeightedAVG(1:end-4);
-    y = 'Correlation Length: ';
-    y = cat(2, y, CorrLengthWeightedAVG,' ', CorrLengthErrorInfoAVG,' [A]'); 
+% function [y,z] = ImageSizeProperties(Pixels, AFMMetaData)
+%     
+%     tempStringforPhysicalImageSize= AFMMetaData{1}{1}{1};
+%     clippedString = strrep(tempStringforPhysicalImageSize,'ScanSize: ','');
+%     clippedString1 = 10e9*str2num(clippedString); 
+%     clippedString = num2str(clippedString1);
+%     y = cat(2, 'Scan Size: ', ' ', clippedString, ' [A]'); 
+%     
+%     ImageResolution = clippedString1/Pixels(1,1);
+%     ImageResolution = ceil(ImageResolution/10^floor ...
+% 		(log10(ImageResolution)))*10^floor(log10(ImageResolution));
+%     ImageResolution = num2str(ImageResolution);
+%     z = cat(2, 'Image Resolution: ', ImageResolution, ' [A/pixel]');
 
-function y = FractalDimensionWeightedAVGInfo ...
-	(SumOfWeightedFractalDimensions, SumOfFractalDimensionWeights,...
-		FractalDimensionWeightedAVGError)
- 
-    FractalDimensionWeightedAVG = SumOfWeightedFractalDimensions / ...
-		SumOfFractalDimensionWeights;
-   % FractalDimensionWeightedAVG = round(FractalDimensionWeightedAVG, 5);
-   % ^ was trying to force an extra decimal place on the D_f printed out...
-    FractalDimensionWeightedAVGError = ...
-		ceil(FractalDimensionWeightedAVGError/10^floor ...
-			(log10(FractalDimensionWeightedAVGError)))*10^floor ...
-				(log10(FractalDimensionWeightedAVGError)); % salt to suit...
-    FractalErrorInfoAVG = num2str(FractalDimensionWeightedAVGError);
-    FractalErrorInfoAVG = cat(2,'(',FractalErrorInfoAVG,')');
-    FractalDimensionWeightedAVG = num2str(FractalDimensionWeightedAVG);
-    FractalDimensionWeightedAVG = FractalDimensionWeightedAVG(1:end-2);
-    y = 'Fractal Dimension: ';
-    y = cat(2, y, FractalDimensionWeightedAVG,' ',FractalErrorInfoAVG);
+% function [y,z] = SumOfWeightedFractalDimensionsAndWeights ...
+% 	(i, AllRoughnessParameters)
+%     
+%     CurrentDf = AllRoughnessParameters{1,i}{2,1}(1,1);
+%     CurrentDfError = AllRoughnessParameters{1,i}{3,1}(1,1);
+%     CurrentDfWeight = 1 / (CurrentDfError)^2;    
+%     y = CurrentDf*CurrentDfWeight;
+%     z = CurrentDfWeight;
     
-function [y,z] = ImageSizeProperties(Pixels, AFMMetaData)
-    
-    tempStringforPhysicalImageSize= AFMMetaData{1}{1}{1};
-    clippedString = strrep(tempStringforPhysicalImageSize,'ScanSize: ','');
-    clippedString1 = 10e9*str2num(clippedString); 
-    clippedString = num2str(clippedString1);
-    y = cat(2, 'Scan Size: ', ' ', clippedString, ' [A]'); 
-    
-    ImageResolution = clippedString1/Pixels(1,1);
-    ImageResolution = ceil(ImageResolution/10^floor ...
-		(log10(ImageResolution)))*10^floor(log10(ImageResolution));
-    ImageResolution = num2str(ImageResolution);
-    z = cat(2, 'Image Resolution: ', ImageResolution, ' [A/pixel]');
 
-function [y,z] = SumOfWeightedFractalDimensionsAndWeights ...
-	(i, AllRoughnessParameters)
     
-    CurrentDf = AllRoughnessParameters{1,i}{2,1}(1,1);
-    CurrentDfError = AllRoughnessParameters{1,i}{3,1}(1,1);
-    CurrentDfWeight = 1 / (CurrentDfError)^2;    
-    y = CurrentDf*CurrentDfWeight;
-    z = CurrentDfWeight;
+% function [y,z] = SumOfWeightedSaturationRuffsAndWeights ...
+% 	(i, AllRoughnessParameters)
+%     
+%     CurrentSatRuff = AllRoughnessParameters{1,i}{2,1}(1,2);
+%     CurrentSatRuffError = AllRoughnessParameters{1,i}{3,1}(1,2);
+%     CurrentSatRuffWeight = 1 / (CurrentSatRuffError)^2;
+%     y = CurrentSatRuff*CurrentSatRuffWeight;
+%     z = CurrentSatRuffWeight;
     
-function [y,z] = SumOfWeightedSaturationRuffsAndWeights ...
-	(i, AllRoughnessParameters)
-    
-    CurrentSatRuff = AllRoughnessParameters{1,i}{2,1}(1,2);
-    CurrentSatRuffError = AllRoughnessParameters{1,i}{3,1}(1,2);
-    CurrentSatRuffWeight = 1 / (CurrentSatRuffError)^2;
-    y = CurrentSatRuff*CurrentSatRuffWeight;
-    z = CurrentSatRuffWeight;
-    
-function [y,z] = SumOfWeightedCorrelationLengthsAndWeights ...
-	(i, AllRoughnessParameters)
-        
-    CurrentCorrLength = AllRoughnessParameters{1,i}{2,1}(1,3);
-    CurrentCorrLengthError = AllRoughnessParameters{1,i}{3,1}(1,3);
-    CurrentCorrLengthWeight = 1 / (CurrentCorrLengthError)^2;
-    y = CurrentCorrLength*CurrentCorrLengthWeight;
-    z = CurrentCorrLengthWeight;
+% function [y,z] = SumOfWeightedCorrelationLengthsAndWeights ...
+% 	(i, AllRoughnessParameters)
+%         
+%     CurrentCorrLength = AllRoughnessParameters{1,i}{2,1}(1,3);
+%     CurrentCorrLengthError = AllRoughnessParameters{1,i}{3,1}(1,3);
+%     CurrentCorrLengthWeight = 1 / (CurrentCorrLengthError)^2;
+%     y = CurrentCorrLength*CurrentCorrLengthWeight;
+%     z = CurrentCorrLengthWeight;
